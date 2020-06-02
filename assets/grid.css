@@ -8,6 +8,7 @@
   width: 100%;
   display: flex;
   margin-bottom: .5rem;
+  justify-content: center;
 }
 .col-1{
   width: 8%;
