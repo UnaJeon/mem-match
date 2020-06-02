@@ -1,0 +1,43 @@
+body{
+  height: 97vh;
+  background-image: url(./images/lfz-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.row1{
+  height:20%;
+}
+.row2{
+  height: 80%;
+}
+header{
+  font-size: 1.8rem;
+}
+.aside-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stats{
+  flex-basis: calc(80%/7);
+  background-color: lightblue;
+  text-align: center;
+  margin:6px;
+}
+.main-container{
+  display: flex;
+  height:100%;
+}
+main{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  background-image: url(../assets/images/lfz-card.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 30%;
+  margin:2px;
+  justify-content: center;
+  align-items: center;
+}
