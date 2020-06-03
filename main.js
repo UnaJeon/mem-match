@@ -7,7 +7,28 @@ var maxMatches =9
 var matches=0;
 var attempts=0
 var gamesPlayed=0
+var cardDeck = [
+  "js-logo",
+  "css-logo",
+  "docker-logo",
+  "gitHub-logo",
+  "html-logo",
+  "mysql-logo",
+  "node-logo",
+  "php-logo",
+  "react-logo",
+  "js-logo",
+  "css-logo",
+  "docker-logo",
+  "gitHub-logo",
+  "html-logo",
+  "mysql-logo",
+  "node-logo",
+  "php-logo",
+  "react-logo"
+]
 
+setCard()
 cards.addEventListener('click', handleClick);
 var button = document.getElementById("resetButton");
 button.addEventListener('click',resetGame)
@@ -88,5 +109,20 @@ function resetCards(){
   var hiddenCards = document.querySelectorAll('.card-back')
   for(var i =0; i< hiddenCards.length; i++){
     hiddenCards[i].classList.remove('hidden');
+  }
+}
+
+function setCard(){
+
+  for (var i = 0; i < cardDeck.length; i++) {
+    var div = document.createElement('div')
+    div.setAttribute('class', "card col-2");
+    cards.append(div);
+    var div2 = document.createElement('div')
+    div2.setAttribute('class', "card-front ")
+    div2.classList+=cardDeck[i];
+    var div3 = document.createElement('div')
+    div3.setAttribute('class', "card-back")
+    div.append(div2, div3)
   }
 }
