@@ -5,6 +5,7 @@ body{
   background-size: cover;
   background-position: center;
 }
+
 .row1{
   height:20%;
 }
@@ -80,6 +81,21 @@ main{
 }
 .react-logo{
   background-image: url(../assets/images/react-logo.png);
+}
+.modal-overlay{
+  position:fixed;
+  width:100%;
+  height:97vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.modal-content{
+  background-color: lightcyan;
+  border: 5px solid lightskyblue;
+  width: 30%;
+  text-align: center;
 }
 .hidden{
   display:none;

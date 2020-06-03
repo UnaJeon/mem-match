@@ -3,7 +3,8 @@ var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
-
+var maxMatches =9
+var matches=0;
 cards.addEventListener('click', handleClick);
 
 function handleClick(event){
@@ -29,6 +30,11 @@ function handleClick(event){
     cards.addEventListener('click',handleClick)
     firstCardClicked = null;
     secondCardClicked = null;
+    matches ++
+    if(matches ===maxMatches){
+    var modal = document.querySelector('div.modal-overlay')
+      modal.classList.remove('hidden')
+    }
   }else{
     //console.log("images do not match")
     setTimeout(function(){
