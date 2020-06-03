@@ -5,6 +5,8 @@ var firstCardClasses;
 var secondCardClasses;
 var maxMatches =9
 var matches=0;
+var attempts=0
+var gamesPlayed=0
 cards.addEventListener('click', handleClick);
 
 function handleClick(event){
@@ -31,6 +33,8 @@ function handleClick(event){
     firstCardClicked = null;
     secondCardClicked = null;
     matches ++
+    attempts++
+    displayStats()
     if(matches ===maxMatches){
     var modal = document.querySelector('div.modal-overlay')
       modal.classList.remove('hidden')
@@ -43,9 +47,23 @@ function handleClick(event){
     cards.addEventListener('click', handleClick)
       firstCardClicked = null;
       secondCardClicked = null;
-    },1500)
-
+     },1500)
+     attempts++
+     displayStats()
+   }
   }
- }
+}
 
+function displayStats(){
+  var numberOfGamesPlayed = document.getElementById('numberOfGamesPlayed')
+  numberOfGamesPlayed.textContent=gamesPlayed;
+  var numberOfAttempts = document.getElementById('numberOfAttempts')
+  numberOfAttempts.textContent=attempts;
+  var accuracy= document.getElementById('accuracy')
+  accuracy.textContent =calculateAccuracy(attempts,matches);
+
+}
+
+function calculateAccuracy(){
+  return Math.trunc(matches/attempts*100) +"%"
 }
