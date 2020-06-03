@@ -17,7 +17,8 @@ function handleClick(event){
   firstCardClicked =event.target
   firstCardClasses = firstCardClicked.previousElementSibling.className
   //console.log("firstCardClass: ", firstCardClasses)
-  //console.log("firstCardClick
+  //console.log("firstCardClicked:", firstCardClicked)
+  }else{
     secondCardClicked=event.target
   //console.log("secondCardClicked: ", secondcardClicked)
   secondCardClasses = secondCardClicked.previousElementSibling.className;
@@ -26,17 +27,18 @@ function handleClick(event){
   if(firstCardClasses===secondCardClasses){
     //console.log("The images match")
     cards.addEventListener('click',handleClick)
-    firstCardClicked=null;
-    secondCardClicked=null;
+    firstCardClicked = null;
+    secondCardClicked = null;
   }else{
     //console.log("images do not match")
     setTimeout(function(){
      firstCardClicked.classList.remove('hidden')
      secondCardClicked.classList.remove('hidden');
-    },1500)
     cards.addEventListener('click', handleClick)
-    firstCardClicked = null;
-    secondCardClicked = null;
+      firstCardClicked = null;
+      secondCardClicked = null;
+    },1500)
+
   }
  }
 
