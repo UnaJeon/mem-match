@@ -7,7 +7,10 @@ var maxMatches =9
 var matches=0;
 var attempts=0
 var gamesPlayed=0
+
 cards.addEventListener('click', handleClick);
+var button = document.getElementById("resetButton");
+button.addEventListener('click',resetGame)
 
 function handleClick(event){
   if(event.target.className.indexOf("card-back")===-1){
@@ -36,8 +39,9 @@ function handleClick(event){
     attempts++
     displayStats()
     if(matches ===maxMatches){
-    var modal = document.querySelector('div.modal-overlay')
+      var modal = document.querySelector('div.modal-overlay')
       modal.classList.remove('hidden')
+
     }
   }else{
     //console.log("images do not match")
@@ -65,5 +69,24 @@ function displayStats(){
 }
 
 function calculateAccuracy(){
+  if(!attempts){
+    return "0%"
+  }
   return Math.trunc(matches/attempts*100) +"%"
+}
+
+function resetGame(){
+   matches = 0
+   attempts = 0
+  gamesPlayed++;
+  displayStats()
+  resetCards()
+  var modal = document.querySelector('div.modal-overlay')
+  modal.classList.add("hidden")
+}
+function resetCards(){
+  var hiddenCards = document.querySelectorAll('.card-back')
+  for(var i =0; i< hiddenCards.length; i++){
+    hiddenCards[i].classList.remove('hidden');
+  }
 }

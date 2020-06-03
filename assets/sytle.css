@@ -96,6 +96,19 @@ main{
   border: 5px solid lightskyblue;
   width: 30%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.button{
+  margin:15px;
+}
+button{
+  background-color: lightgoldenrodyellow;
+  border: 8px solid pink;
+  padding:10px;
+  border-radius:20%;
+  font-size:15px;
 }
 .hidden{
   display:none;
