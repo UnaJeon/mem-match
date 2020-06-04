@@ -7,6 +7,7 @@ var maxMatches =9
 var matches=0;
 var attempts=0
 var gamesPlayed=0
+
 var cardDeck = [
   "js-logo",
   "css-logo",
@@ -29,9 +30,12 @@ var cardDeck = [
 ]
 
 setCard()
+var getCard = document.querySelectorAll('div.card-front')
+shuffleCards()
 cards.addEventListener('click', handleClick);
 var button = document.getElementById("resetButton");
 button.addEventListener('click',resetGame)
+
 
 function handleClick(event){
   if(event.target.className.indexOf("card-back")===-1){
@@ -102,9 +106,11 @@ function resetGame(){
   gamesPlayed++;
   displayStats()
   resetCards()
+  shuffleCards()
   var modal = document.querySelector('div.modal-overlay')
   modal.classList.add("hidden")
 }
+
 function resetCards(){
   var hiddenCards = document.querySelectorAll('.card-back')
   for(var i =0; i< hiddenCards.length; i++){
@@ -113,16 +119,33 @@ function resetCards(){
 }
 
 function setCard(){
-
   for (var i = 0; i < cardDeck.length; i++) {
     var div = document.createElement('div')
     div.setAttribute('class', "card col-2");
     cards.append(div);
     var div2 = document.createElement('div')
     div2.setAttribute('class', "card-front ")
-    div2.classList+=cardDeck[i];
     var div3 = document.createElement('div')
     div3.setAttribute('class', "card-back")
     div.append(div2, div3)
   }
+}
+
+function shuffleCards(){
+  for(var i=0; i<cardDeck.length;i++){
+    var random =Math.floor(Math.random()*cardDeck.length)
+    var placeHolder = cardDeck[i]
+    cardDeck[i]=cardDeck[random]
+    cardDeck[random]=placeHolder
+  }
+  displayCards()
+}
+
+
+
+function displayCards(){
+  for(var i=0; i<getCard.length; i++){
+    getCard[i].className += cardDeck[i]
+  }
+
 }
